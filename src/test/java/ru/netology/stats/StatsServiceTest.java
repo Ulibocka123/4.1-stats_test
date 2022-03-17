@@ -6,10 +6,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StatsServiceTest {
 
+    long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+    StatsService service = new StatsService();
+
     @Test
     void shouldCalculateSum() {
-        StatsService service = new StatsService();
-        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 180;
         long actual = service.calculateSum(sales);
 
@@ -18,8 +19,6 @@ class StatsServiceTest {
 
     @Test
     void shouldAverageSalesAmount() {
-        StatsService service = new StatsService();
-        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 15;
         long actual = service.averageSalesAmount(sales);
 
@@ -29,8 +28,6 @@ class StatsServiceTest {
 
     @Test
     void shouldFindMax() {
-            StatsService service = new StatsService();
-            long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
             int expected = 6;
             long actual = service.findMax(sales);
 
@@ -39,8 +36,6 @@ class StatsServiceTest {
 
     @Test
     void shouldFindMin() {
-        StatsService service = new StatsService();
-        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 9;
         long actual = service.findMin(sales);
 
@@ -49,8 +44,6 @@ class StatsServiceTest {
 
     @Test
     void shouldNumberSalesBelowAverage() {
-        StatsService service = new StatsService();
-        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 5;
         long actual = service.numberSalesBelowAverage(sales);
 
@@ -59,10 +52,8 @@ class StatsServiceTest {
 
     @Test
     void shouldNumberSalesMoreAverage() {
-        StatsService service = new StatsService();
-        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 5;
-        long actual = service.numberSalesBelowAverage(sales);
+        long actual = service.numberSalesAboveAverage(sales);
 
         assertEquals(expected, actual);
     }
